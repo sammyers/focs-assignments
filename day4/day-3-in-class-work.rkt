@@ -7,6 +7,25 @@
 ;; 0.  Implement factorial both recursively and tail recursively.
 ;;     Hint:  The tail recursive version will use a helper function.
 
+(define (factorial num)
+  (if (= num 0)
+      1
+      (* num (factorial (- num 1)))
+  )
+)
+
+(define (fact-helper num so-far)
+  (if (zero? num)
+      so-far
+      (fact-helper (- num 1) (* num so-far))
+  )
+)
+
+(define (tail-factorial num)
+  (fact-helper num 1)
+)
+
+(tail-factorial 5)
 
 ;;;;;;;;;;;
 ;; 1.  Filter is built in to scheme.
@@ -18,8 +37,21 @@
 
 ;; Implement it anyway.  You might want to call it my-filter?  What arguments does it take?
 
+(define (my-filter test lst)
+  (if (empty? lst)
+      lst
+      (if (test (first lst))
+          (cons (first lst) (my-filter test (rest lst)))
+          (my-filter test (rest lst))
+      )
+  )
+)
 
+(define (even x)
+  (zero? (modulo x 2))
+)
 
+(my-filter even? '(1 2 3 4 5 6 7 8))
 
 
 ;;;;;;;;;;;
@@ -35,10 +67,18 @@
 
 ;; Implement it as well.  You might want to call it my-map.  What arguments does it take?
 
+(define (my-map func lst)
+  (if (empty? lst)
+      lst
+      (cons (func (first lst)) (my-map func (rest lst)))
+  )
+)
 
+(define (double x)
+  (* 2 x)
+)
 
-
-
+(my-map double '(1 2 3 4))
 
 
 ;;;;;;;;;;;
@@ -51,9 +91,14 @@
 ;; You might want to draw out the box and pointer structures for the original two lists
 ;; as well as for the new list.  Confirm with a member of the instructional staff....
 
+(define (my-append lst1 lst2)
+  (if (empty? lst1)
+      lst2
+      (my-append (drop-right lst1 1) (cons (last lst1) lst2)) 
+  )
+)
 
-
-
+(my-append '(1 2 3) '(4 5 6))
 
 ;;;;;;;;;;;
 ;; 4.  zip takes two lists, and returns a list of elements of size two, until one of the lists runs out.
@@ -63,7 +108,14 @@
 
 ;; Implement `zip`.
 
+(define (zip lst1 lst2)
+  (if (or (= (length lst1) 1) (= (length lst2) 1))
+      (list (list (first lst1) (first lst2)))
+      (my-append (list (list (first lst1) (first lst2))) (zip (rest lst1) (rest lst2)))
+  )
+)
 
+(zip '(1 2 3 4 5 6) '(7 8))
 
 
 ;;;;;;;;;;;;
@@ -72,7 +124,14 @@
 
 ;; (reverse '(1 2 3)) --> '(3 2 1)
 
+(define (my-reverse lst)
+  (if (empty? lst)
+      '()
+      (my-append (my-reverse (rest lst)) (list (first lst)))
+  )
+)
 
+(my-reverse '(1 2 3 4))
 
 ;;;;;;;;;;;;
 ;; More puzzles:
