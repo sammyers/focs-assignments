@@ -9,7 +9,7 @@ Student Name: Frankly Olin [change to your name]
 Check one:
 [ ] I completed this assignment without assistance or external resources.
 [ ] I completed this assignment with assistance from ___
-   and/or using these external resources: ___
+   and/or using these external resources: [http://www.people.vcu.edu/~sgharibian/courses/CMSC303/2016/course%20notes/9%20Pumping%20Lemma%20Examples.pdf](http://www.people.vcu.edu/~sgharibian/courses/CMSC303/2016/course%20notes/9%20Pumping%20Lemma%20Examples.pdf)
 ```
 
 ## 1. For each of the following languages, decide whether it is regular
@@ -20,6 +20,8 @@ a) Strings containing only the symbol a whose length is a power of 2 (*i.e.* len
 
 [The strings `a`, `aa`, `aaaa`, and `aaaaaaaa` are in this language; the string `aaaaa` is not.]
 
+It makes sense intuitively that this isn't regular, but I can't put my finger on why exactly in the context of the pumping lemma. 
+
 b) All strings with an equal number of occurrences of the substrings `01` and `10`.
 
 [010 is in this language; `000110` is in the language; `0101010` is in the language; but `010101` is not.]
@@ -28,9 +30,20 @@ c) All strings (over {0,1}) consisting of a substring _w_ followed by the revers
 
 [The strings `00100100` and `11110101011010101111` are in this language; the strings `00100` and `010101 `are not.]
 
+Also not regular; there's no way for a machine to determine the midpoint of a string of arbitrary length.
+
 ## 2. Play the pumping game
 
 Play the **pumping game** (referenced on the [Day 8 page](https://sites.google.com/site/focs16fall/in-class-exercises/day-8) and also found at [http://weitz.de/pump/](http://weitz.de/pump/)).  Solve at least two puzzles from that page (that do NOT appear in question 1, above) and provide the word you chose, the substring the computer chose, and your successfully pumped string.
+
+L = {a^n | n is prime}
+
+a^29 -> a^11 -> a^60
+
+
+L = {a^n b^n}
+
+a^14b^14 -> a^7 -> a^21b^14
 
 Notation notes:
 
