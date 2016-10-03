@@ -8,8 +8,8 @@ If you add a separate file, please include the following at the top:
 Student Name: Frankly Olin [change to your name]
 Check one:
 [ ] I completed this assignment without assistance or external resources.
-[ ] I completed this assignment with assistance from ___
-   and/or using these external resources: [http://www.people.vcu.edu/~sgharibian/courses/CMSC303/2016/course%20notes/9%20Pumping%20Lemma%20Examples.pdf](http://www.people.vcu.edu/~sgharibian/courses/CMSC303/2016/course%20notes/9%20Pumping%20Lemma%20Examples.pdf)
+[x] I completed this assignment with assistance from ___
+   and/or using these external resources: http://www.people.vcu.edu/~sgharibian/courses/CMSC303/2016/course%20notes/9%20Pumping%20Lemma%20Examples.pdf
 ```
 
 ## 1. For each of the following languages, decide whether it is regular
@@ -25,6 +25,8 @@ It makes sense intuitively that this isn't regular, but I can't put my finger on
 b) All strings with an equal number of occurrences of the substrings `01` and `10`.
 
 [010 is in this language; `000110` is in the language; `0101010` is in the language; but `010101` is not.]
+
+![fsa diagram](/day8/day8_fsa.jpg "FSA Diagram")
 
 c) All strings (over {0,1}) consisting of a substring _w_ followed by the reverse of the substring.
 
