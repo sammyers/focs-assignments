@@ -8,7 +8,7 @@ If you add a separate file, please include the following at the top:
 ```
 Student Name: Sam Myers
 Check one:
-[ ] I completed this assignment without assistance or external resources.
+[X] I completed this assignment without assistance or external resources.
 [ ] I completed this assignment with assistance from ___
    and/or using these external resources: ___
 ```
